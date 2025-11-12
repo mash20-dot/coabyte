@@ -4,63 +4,41 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+type PostModule = {
+  default: React.ComponentType<any>;
+  meta: {
+    title: string;
+    excerpt?: string;
+    category?: string;
+    date?: string;
+    readTime?: string;
+    image?: string;
+    slug?: string;
+  };
+};
 
 const Blog = () => {
-  const blogPosts = [
-    {
-      title: "The Future of AI in Software Development",
-      excerpt: "Exploring how artificial intelligence is revolutionizing the way we build and maintain software applications.",
-      category: "AI & Technology",
-      date: "March 15, 2024",
-      readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
-    },
-    {
-      title: "Best Practices for Mobile App Development",
-      excerpt: "Essential guidelines and strategies for creating high-performance mobile applications that users love.",
-      category: "Mobile Development",
-      date: "March 10, 2024",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
-    },
-    {
-      title: "Building Scalable APIs: A Complete Guide",
-      excerpt: "Learn the fundamentals of designing and implementing robust, scalable APIs for modern applications.",
-      category: "API Development",
-      date: "March 5, 2024",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
-    },
-    {
-      title: "Cloud Computing: Trends and Innovations",
-      excerpt: "Discover the latest trends in cloud computing and how they're shaping the future of technology.",
-      category: "Cloud & Infrastructure",
-      date: "February 28, 2024",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop",
-    },
-    {
-      title: "Cybersecurity Best Practices for 2024",
-      excerpt: "Essential security measures every software development team should implement to protect their applications.",
-      category: "Security",
-      date: "February 20, 2024",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=400&fit=crop",
-    },
-    {
-      title: "The Rise of Low-Code Development Platforms",
-      excerpt: "How low-code platforms are democratizing software development and accelerating digital transformation.",
-      category: "Development Tools",
-      date: "February 15, 2024",
-      readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    },
-  ];
+  // Dynamically import post modules from src/posts — add a new .tsx file there to publish a post
+  const modules = import.meta.glob<PostModule>("../posts/*.tsx", { eager: true });
+  const blogPosts = Object.entries(modules).map(([path, mod]) => {
+    const slug = path.split("/").pop()!.replace(/\.tsx$/, "");
+    return {
+      slug,
+      ...mod.meta,
+    };
+  })
+    // sort by date if present (newest first)
+    .sort((a, b) => {
+      if (!a.date || !b.date) return 0;
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
@@ -106,10 +84,10 @@ const Blog = () => {
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <button className="text-primary font-semibold flex items-center gap-2 group/btn">
+                  <Link to={`/blog/${post.slug}`} className="text-primary font-semibold flex items-center gap-2 group/btn">
                     Read More
                     <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
