@@ -7,47 +7,37 @@ import { Linkedin, Mail } from "lucide-react";
 const Team = () => {
   const teamMembers = [
     {
-      name: "John Doe",
-      role: "CEO & Founder",
-      bio: "Visionary leader with 15+ years in software development and business strategy.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+      name: "Sakyi Mustapha",
+      role: "Founder & CTO",
+      bio: "Visionary leader and technical expert with years of experience building innovative solutions.",
+      image: "https://imglink.io/i/3adbb029-5a3a-470f-ba99-e94ae615256c.jpeg",
     },
     {
-      name: "Jane Smith",
-      role: "CTO",
-      bio: "Technical expert specializing in AI and cloud architecture solutions.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Mike Johnson",
+      name: "Asare Maxwell",
       role: "Lead Developer",
+      bio: "Full-stack developer specializing in scalable architecture and AI integration.",
+      image: "https://imglink.io/i/12006b79-795e-43fb-a448-85e98658f21d.jpg",
+    },
+    {
+      name: "Product Manager Name",
+      role: "Product Manager",
+      bio: "Strategic leader focused on driving business growth and product excellence.",
+      image: "https://imglink.io/i/de6a5348-5035-40ba-bf07-dfcf29bdc673.jpg",
+    },
+    {
+      name: "Mike Ajei Sarfo",
+      role: "Frontend Developer",
       bio: "Full-stack developer passionate about creating scalable applications.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+      image: "https://imglink.io/i/0d409d16-0d3b-460f-a31d-42de1f29c589.jpg",
     },
-    {
-      name: "Sarah Williams",
-      role: "UI/UX Designer",
-      bio: "Creative designer focused on delivering exceptional user experiences.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    },
-    {
-      name: "David Brown",
-      role: "Mobile Developer",
-      bio: "Expert in iOS and Android development with a focus on performance.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Emily Davis",
-      role: "AI Specialist",
-      bio: "Machine learning engineer developing intelligent solutions.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-    },
+
+
   ];
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
@@ -56,7 +46,7 @@ const Team = () => {
               Meet Our <span className="text-primary">Team</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Our talented team of developers, designers, and strategists work together to deliver exceptional digital solutions.
+              Our talented Ghana-based team of developers, designers, and strategists work together to deliver exceptional digital solutions across Ghana and the region.
             </p>
           </section>
 
@@ -80,12 +70,22 @@ const Team = () => {
                     {member.bio}
                   </p>
                   <div className="flex justify-center gap-4">
-                    <button className="p-2 hover:bg-primary/10 rounded-lg transition-colors">
+                    <a
+                      href="https://www.linkedin.com/company/mhistack/?viewAsMember=true"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 hover:bg-primary/10 rounded-lg transition-colors"
+                      aria-label={`Open ${member.name} on LinkedIn`}
+                    >
                       <Linkedin className="h-5 w-5 text-primary" />
-                    </button>
-                    <button className="p-2 hover:bg-primary/10 rounded-lg transition-colors">
+                    </a>
+                    <a
+                      href={`mailto:${member.email ?? "contact@coabyte.com"}`}
+                      className="p-2 hover:bg-primary/10 rounded-lg transition-colors"
+                      aria-label={`Email ${member.name}`}
+                    >
                       <Mail className="h-5 w-5 text-primary" />
-                    </button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>

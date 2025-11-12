@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[form]
+  name = "contact"
+  email = "YOUR_NETLIFY_EMAIL@netlify.com"
+  honeypot = "bot-field"

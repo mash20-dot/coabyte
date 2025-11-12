@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
@@ -17,7 +17,7 @@ const About = () => {
               About <span className="text-primary">Us</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We are a team of passionate developers and innovators committed to delivering cutting-edge software solutions that transform businesses and drive digital success.
+              We are a Ghana-based team of passionate developers and innovators committed to delivering cutting-edge software solutions that transform businesses and drive digital success across Ghana and the region.
             </p>
           </section>
 
@@ -88,11 +88,11 @@ const About = () => {
                 <div className="text-lg opacity-90">Years Experience</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">500+</div>
+                <div className="text-4xl font-bold mb-2">123+</div>
                 <div className="text-lg opacity-90">Projects Completed</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">50+</div>
+                <div className="text-4xl font-bold mb-2">5+</div>
                 <div className="text-lg opacity-90">Team Members</div>
               </div>
               <div>

@@ -24,19 +24,40 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     try {
       contactSchema.parse(formData);
       setErrors({});
-      
-      toast({
-        title: "Message Sent!",
-        description: "We'll get back to you as soon as possible.",
-      });
-      
-      setFormData({ name: "", email: "", phone: "", message: "" });
+
+      // Submit to Netlify
+      const form = e.currentTarget;
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }).toString(),
+      })
+        .then(() => {
+          toast({
+            title: "Message Sent!",
+            description: "We'll get back to you as soon as possible.",
+          });
+          setFormData({ name: "", email: "", phone: "", message: "" });
+        })
+        .catch(() => {
+          toast({
+            title: "Error",
+            description: "Failed to send message. Please try again.",
+            variant: "destructive",
+          });
+        });
     } catch (error) {
       if (error instanceof z.ZodError) {
         const newErrors: Record<string, string> = {};
@@ -65,10 +86,10 @@ const Contact = () => {
             Get In <span className="text-primary">Touch</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to start your next project? Let's discuss how we can help you achieve your goals
+            Ready to start your next project in Ghana? Let's discuss how we can help you achieve your goals and scale your business locally and regionally.
           </p>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div className="space-y-8">
             <Card className="border-2 hover:border-primary transition-colors">
@@ -82,11 +103,11 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-lg">
-                  contact@yourcompany.com
+                  contact@coabyte.com
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="border-2 hover:border-primary transition-colors">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-2xl">
@@ -102,7 +123,7 @@ const Contact = () => {
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="border-2 hover:border-primary transition-colors">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-2xl">
@@ -114,12 +135,12 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-lg">
-                  123 Tech Street, Innovation City, TC 12345
+                  123 Tech Street, Accra, Ghana
                 </CardDescription>
               </CardContent>
             </Card>
           </div>
-          
+
           <Card className="border-2">
             <CardHeader>
               <CardTitle className="text-2xl">Send us a message</CardTitle>
@@ -128,7 +149,10 @@ const Contact = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
+
                 <div>
                   <Input
                     name="name"
@@ -139,7 +163,7 @@ const Contact = () => {
                   />
                   {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
                 </div>
-                
+
                 <div>
                   <Input
                     name="email"
@@ -151,7 +175,7 @@ const Contact = () => {
                   />
                   {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
                 </div>
-                
+
                 <div>
                   <Input
                     name="phone"
@@ -162,7 +186,7 @@ const Contact = () => {
                   />
                   {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
                 </div>
-                
+
                 <div>
                   <Textarea
                     name="message"
@@ -174,7 +198,7 @@ const Contact = () => {
                   />
                   {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
                 </div>
-                
+
                 <Button type="submit" size="lg" className="w-full h-12 text-lg font-semibold group">
                   Send Message
                   <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
