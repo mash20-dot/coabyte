@@ -57,7 +57,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative lg:block hidden">
+          <div className="relative block">
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-20 rounded-3xl blur-2xl"></div>
             <img
               src={heroImage}
