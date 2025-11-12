@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
@@ -28,12 +27,6 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="h-14 text-lg border-2 focus:border-primary"
-                id="hero-email"
-              />
               <Button 
                 size="lg" 
                 className="h-14 px-8 text-lg font-semibold group"
@@ -43,6 +36,10 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
+            
+            <p className="text-lg text-muted-foreground">
+              Ready to bring your vision to life? Let's create something amazing together.
+            </p>
             
             <div className="flex gap-8 pt-4">
               <div>

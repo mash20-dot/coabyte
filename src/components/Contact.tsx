@@ -98,7 +98,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-lg">
-                  +1 (555) 123-4567
+                  +233 55 214 8347
                 </CardDescription>
               </CardContent>
             </Card>

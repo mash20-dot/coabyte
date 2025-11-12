@@ -109,7 +109,7 @@ const Projects = () => {
             </p>
             <button
               onClick={() => {
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                window.location.href = "/contact";
               }}
               className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
