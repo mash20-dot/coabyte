@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-25">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="Coabyte Technologies" className="h-24 w-40" />
+            <img src={logo} alt="Coabyte Technologies" className="h-20 w-32" />
           </Link>
 
           {/* Desktop Navigation */}
