@@ -19,8 +19,8 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight">
-              Transform Your Ideas Into
-              <span className="text-primary"> Digital Reality</span>
+              Building Custom Software for Businesses
+              <span className="text-primary"> Ghana-Based Agency</span>
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed">
