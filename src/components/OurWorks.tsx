@@ -26,6 +26,14 @@ const OurWorks = () => {
                     <p className="text-center text-muted-foreground mt-6 text-sm">
                         Explore how we transform ideas into reality with cutting-edge technology and creative solutions.
                     </p>
+                    <div className="flex justify-center mt-8">
+                        <a
+                            href="/projects"
+                            className="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
+                        >
+                            View More Projects
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
