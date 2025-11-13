@@ -135,7 +135,8 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-lg">
-                  123 Tech Street, Accra, Ghana
+                  Kotokrom, Sunyani, Ghana<br />
+                  <span className="text-sm">BS-0347-6839</span>
                 </CardDescription>
               </CardContent>
             </Card>
