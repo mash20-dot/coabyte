@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Reveal from "@/components/Reveal";
+import Stagger from "@/components/Stagger";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Code, Smartphone, Network, Brain } from "lucide-react";
@@ -54,69 +56,71 @@ const Projects = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero Section */}
-          <section className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-navy mb-6">
-              Our <span className="text-primary">Projects</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Explore our portfolio of successful projects across various industries. Each project showcases our commitment to excellence and innovation.
-            </p>
-          </section>
+        <Reveal>
+          <div className="container mx-auto px-4">
+            {/* Hero Section */}
+            <section className="text-center mb-16">
+              <h1 className="text-5xl font-bold text-navy mb-6">
+                Our <span className="text-primary">Projects</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Explore our portfolio of successful projects across various industries. Each project showcases our commitment to excellence and innovation.
+              </p>
+            </section>
 
-          {/* Projects Grid */}
-          <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="bg-primary/10 rounded-lg p-3">
-                      <project.icon className="h-8 w-8 text-primary" />
+            {/* Projects Grid */}
+            <Stagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" staggerMs={100}>
+              {projects.map((project, index) => (
+                <Card key={index} className="group hover:shadow-xl transition-shadow duration-300">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="bg-primary/10 rounded-lg p-3">
+                        <project.icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors cursor-pointer" />
                     </div>
-                    <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors cursor-pointer" />
-                  </div>
-                  <CardTitle className="text-navy mb-2">{project.title}</CardTitle>
-                  <Badge variant="secondary" className="w-fit">
-                    {project.category}
-                  </Badge>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </section>
+                    <CardTitle className="text-navy mb-2">{project.title}</CardTitle>
+                    <Badge variant="secondary" className="w-fit">
+                      {project.category}
+                    </Badge>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, techIndex) => (
+                        <Badge key={techIndex} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </Stagger>
 
-          {/* CTA Section */}
-          <section className="mt-16 text-center bg-gradient-to-br from-light-bg to-background rounded-3xl p-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">
-              Have a Project in Mind?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can bring your vision to life with our expertise and innovative solutions.
-            </p>
-            <button
-              onClick={() => {
-                window.location.href = "/contact";
-              }}
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-            >
-              Get in Touch
-            </button>
-          </section>
-        </div>
+            {/* CTA Section */}
+            <section className="mt-16 text-center bg-gradient-to-br from-light-bg to-background rounded-3xl p-12">
+              <h2 className="text-3xl font-bold text-navy mb-4">
+                Have a Project in Mind?
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Let's discuss how we can bring your vision to life with our expertise and innovative solutions.
+              </p>
+              <button
+                onClick={() => {
+                  window.location.href = "/contact";
+                }}
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+              >
+                Get in Touch
+              </button>
+            </section>
+          </div>
+        </Reveal>
       </main>
 
       <Footer />

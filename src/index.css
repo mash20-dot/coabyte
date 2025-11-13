@@ -37,7 +37,7 @@ All colors MUST be HSL.
     --ring: 211 100% 50%;
 
     --radius: 0.75rem;
-    
+
     --navy: 220 30% 10%;
     --light-bg: 220 20% 97%;
 
@@ -86,7 +86,7 @@ All colors MUST be HSL.
     --border: 220 20% 25%;
     --input: 220 20% 25%;
     --ring: 211 100% 50%;
-    
+
     --navy: 0 0% 100%;
     --light-bg: 220 25% 15%;
   }
@@ -101,8 +101,18 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  /* Enable smooth scrolling behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }

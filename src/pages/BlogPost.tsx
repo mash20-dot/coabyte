@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 type PostModule = {
     default: React.ComponentType<any>;
@@ -33,37 +34,39 @@ const BlogPost: React.FC = () => {
         );
     }
 
-    const [, mod] = matchEntry;
+    const [, mod] = matchEntry as [string, PostModule];
     const PostComponent = mod.default;
-    const meta = mod.meta || {};
+    const meta = (mod.meta ?? {}) as PostModule["meta"];
 
     return (
-        <article className="container mx-auto py-20">
-            <header className="mb-8">
-                <h1 className="text-3xl md:text-4xl font-bold mb-2">{meta.title}</h1>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <span>{meta.date}</span>
-                    <span>•</span>
-                    <span>{meta.readTime}</span>
+        <Reveal>
+            <article className="container mx-auto py-20">
+                <header className="mb-8">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-2">{meta.title}</h1>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                        <span>{meta.date}</span>
+                        <span>•</span>
+                        <span>{meta.readTime}</span>
+                    </div>
+                </header>
+
+                {meta.image && (
+                    <div className="mb-8">
+                        <img src={meta.image} alt={meta.title} className="w-full h-72 object-cover rounded-md" />
+                    </div>
+                )}
+
+                <section className="prose max-w-none">
+                    <PostComponent />
+                </section>
+
+                <div className="mt-12">
+                    <Link to="/blog" className="inline-flex items-center gap-2 text-primary">
+                        <ArrowLeft className="h-4 w-4" /> Back to blog
+                    </Link>
                 </div>
-            </header>
-
-            {meta.image && (
-                <div className="mb-8">
-                    <img src={meta.image} alt={meta.title} className="w-full h-72 object-cover rounded-md" />
-                </div>
-            )}
-
-            <section className="prose max-w-none">
-                <PostComponent />
-            </section>
-
-            <div className="mt-12">
-                <Link to="/blog" className="inline-flex items-center gap-2 text-primary">
-                    <ArrowLeft className="h-4 w-4" /> Back to blog
-                </Link>
-            </div>
-        </article>
+            </article>
+        </Reveal>
     );
 };
 
