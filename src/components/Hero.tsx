@@ -9,21 +9,25 @@ const Hero = () => {
   const emailUrl = `mailto:${emailAddress}`;
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-light-bg via-background to-light-bg overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src={heroImage}
+          alt="Modern software development workspace"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60"></div>
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight">
+        <div className="grid lg:grid-cols-1 gap-12 items-center">
+          <div className="space-y-8 max-w-3xl">
+            <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
               Building Custom Software for Businesses
               <span className="text-primary"> Ghana-Based Agency</span>
             </h1>
 
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-gray-200 leading-relaxed">
               We craft cutting-edge software solutions in Ghana that drive innovation and accelerate your business growth. From concept to deployment, we're your trusted technology partner for businesses across Ghana and beyond.
             </p>
 
@@ -50,33 +54,24 @@ const Hero = () => {
               </a>
             </div>
 
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-gray-300">
               Ready to bring your vision to life in Ghana? Let's create something amazing together.
             </p>
 
             <div className="flex gap-8 pt-4">
               <div>
                 <div className="text-3xl font-bold text-primary">123+</div>
-                <div className="text-sm text-muted-foreground">Projects Delivered</div>
+                <div className="text-sm text-gray-300">Projects Delivered</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary">98%</div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                <div className="text-sm text-gray-300">Client Satisfaction</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary">5+</div>
-                <div className="text-sm text-muted-foreground">Tech Experts</div>
+                <div className="text-sm text-gray-300">Tech Experts</div>
               </div>
             </div>
-          </div>
-
-          <div className="relative block">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-20 rounded-3xl blur-2xl"></div>
-            <img
-              src={heroImage}
-              alt="Modern software development workspace"
-              className="relative rounded-3xl shadow-2xl w-full h-auto"
-            />
           </div>
         </div>
       </div>
