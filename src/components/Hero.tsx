@@ -28,7 +28,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-100 sm:text-gray-200 leading-relaxed max-w-2xl">
-              We craft cutting-edge software solutions in Ghana that drive innovation and accelerate your business growth. From concept to deployment, we're your trusted technology partner for businesses across Ghana and beyond.
+              We craft cutting-edge software, web, and mobile app solutions in Ghana that drive innovation and accelerate business growth. From concept to deployment, we’re your trusted software development partner — helping businesses in Ghana and around the world succeed.
             </p>
 
             <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 pt-2">
