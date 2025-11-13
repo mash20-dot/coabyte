@@ -8,7 +8,7 @@ import aiImg from "@/assets/service-ai.jpg";
 const services = [
   {
     icon: Code,
-    title: "Software Development",
+    title: "Website Development",
     description: "Custom software solutions tailored to your business needs. We build scalable, secure, and efficient applications using the latest technologies.",
     image: softwareImg,
     color: "from-blue-500 to-cyan-500"
@@ -48,17 +48,17 @@ const Services = () => {
             Comprehensive technology solutions designed to help your business thrive in the digital age
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card 
+            <Card
               key={index}
               className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary overflow-hidden"
             >
               <div className="relative h-48 overflow-hidden">
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-90`}></div>
-                <img 
-                  src={service.image} 
+                <img
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover mix-blend-overlay"
                 />
@@ -66,13 +66,13 @@ const Services = () => {
                   <service.icon className="h-16 w-16 text-white" />
                 </div>
               </div>
-              
+
               <CardHeader>
                 <CardTitle className="text-xl group-hover:text-primary transition-colors">
                   {service.title}
                 </CardTitle>
               </CardHeader>
-              
+
               <CardContent>
                 <CardDescription className="text-base leading-relaxed">
                   {service.description}
