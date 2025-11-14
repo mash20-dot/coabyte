@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   const whatsappNumber = "233552148347";
@@ -12,7 +11,7 @@ const Hero = () => {
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src={heroImage}
+          src="https://i.imgur.com/skTkVM2.jpg"
           alt="Modern software development workspace"
           className="w-full h-full object-cover object-center"
         />
@@ -23,12 +22,12 @@ const Hero = () => {
         <div className="flex items-center min-h-[calc(100svh-6rem)] sm:min-h-[calc(100svh-8rem)] md:min-h-0">
           <div className="space-y-6 sm:space-y-7 md:space-y-8 max-w-4xl w-full">
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.15] sm:leading-tight">
-              Building Custom Software for Businesses
-              <span className="block sm:inline text-primary"> Ghana-Based Agency</span>
+              Best Web And Mobile Design
+              <span className="block sm:inline text-primary"> Company in Ghana</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-100 sm:text-gray-200 leading-relaxed max-w-2xl">
-              We craft cutting-edge software, web, and mobile app solutions in Ghana that drive innovation and accelerate business growth. From concept to deployment, we’re your trusted software development partner — helping businesses in Ghana and around the world succeed.
+              We craft cutting-edge software, web, and mobile app solutions in Ghana that drive innovation and accelerate business growth. From concept to deployment, we're your trusted software development partner — helping businesses in Ghana and around the world succeed.
             </p>
 
             <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 pt-2">
