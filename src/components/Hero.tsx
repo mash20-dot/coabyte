@@ -11,7 +11,7 @@ const Hero = () => {
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://i.imgur.com/kb9Yzbm.jpg"
+          src="https://i.imgur.com/NrfIvYA.jpg"
           alt="Modern software development workspace"
           className="w-full h-full object-cover object-center"
         />
