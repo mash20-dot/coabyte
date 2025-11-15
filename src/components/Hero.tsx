@@ -22,7 +22,7 @@ const Hero = () => {
         <div className="flex items-center min-h-[calc(100svh-6rem)] sm:min-h-[calc(100svh-8rem)] md:min-h-0">
           <div className="space-y-6 sm:space-y-7 md:space-y-8 max-w-4xl w-full">
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.15] sm:leading-tight">
-              Best Web And Mobile Design
+              Best Web and Mobile App Development
               <span className="block sm:inline text-primary"> Company in Ghana</span>
             </h1>
 
