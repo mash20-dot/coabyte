@@ -31,25 +31,31 @@ const Contact = () => {
       contactSchema.parse(formData);
       setErrors({});
 
-      // Submit to Netlify
+      // Submit to Formspree
       const form = e.currentTarget;
-      fetch("/", {
+      fetch("https://formspree.io/f/xrbrkbvv", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          "form-name": "contact",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
-        }).toString(),
+        }),
       })
-        .then(() => {
-          toast({
-            title: "Message Sent!",
-            description: "We'll get back to you as soon as possible.",
-          });
-          setFormData({ name: "", email: "", phone: "", message: "" });
+        .then((response) => {
+          if (response.ok) {
+            toast({
+              title: "Message Sent!",
+              description: "We'll get back to you as soon as possible.",
+            });
+            setFormData({ name: "", email: "", phone: "", message: "" });
+          } else {
+            throw new Error("Failed to send");
+          }
         })
         .catch(() => {
           toast({
@@ -150,10 +156,12 @@ const Contact = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact" />
-                <input type="hidden" name="bot-field" />
-
+              <form
+                onSubmit={handleSubmit}
+                action="https://formspree.io/f/xrbrkbvv"
+                method="POST"
+                className="space-y-6"
+              >
                 <div>
                   <Input
                     name="name"
